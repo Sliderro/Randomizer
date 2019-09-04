@@ -86,9 +86,6 @@ class Controller {
         for (int i=0; i<playerName.length; i++){
             swap[i]= new Label();
         }
-        for (int i=0; i<playerName.length; i++){
-            swap[Character.getNumericValue(str.charAt(i))].setText(playerName[i].getText());
-        }
         if (str.equals("error")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Gratulacje Sztacheta");
@@ -96,6 +93,9 @@ class Controller {
             alert.setContentText("Teraz wylosuj normalnie, OK?");
             alert.showAndWait();
         } else if(playerName.length == 10){
+            for (int i=0; i<playerName.length; i++){
+                swap[Character.getNumericValue(str.charAt(i))].setText(playerName[i].getText());
+            }
             Label[] roles ={
                     new Label("Blue Side:"),
                     new Label("Top Lane:"),
